@@ -1,5 +1,13 @@
 # Switch Save Assistant
 
+A Windows desktop application for inspecting, comparing, backing up and synchronizing Nintendo Switch save data between supported sources.
+
+> **Status:** Public pre-release. Windows x64 installer and portable packages are available above.
+
+Switch Save Assistant is an independent community project. It is **not affiliated with, endorsed by, or sponsored by Nintendo** or the developers of supported emulators.
+
+[Leia em português](README.pt-BR.md)
+
 ## Download
 
 **[Download the Windows x64 installer](https://github.com/ascc-br/switch-save-assistant/releases/download/v0.1.0-preview.2/SwitchSaveAssistant-Setup-0.1.0-preview.2-win-x64.exe)**
@@ -9,14 +17,6 @@ Latest available version: **0.1.0-preview.2 (pre-release)**.
 [Portable ZIP](https://github.com/ascc-br/switch-save-assistant/releases/download/v0.1.0-preview.2/SwitchSaveAssistant-Portable-0.1.0-preview.2-win-x64.zip) · [Release notes and SHA-256 checksums](https://github.com/ascc-br/switch-save-assistant/releases/tag/v0.1.0-preview.2) · [All releases](https://github.com/ascc-br/switch-save-assistant/releases)
 
 The packages include the .NET runtime. No SDK installation is required to run the application.
-
-A Windows desktop application for inspecting, comparing, backing up and synchronizing Nintendo Switch save data between supported sources.
-
-> **Status:** Public pre-release. Windows x64 installer and portable packages are available above.
-
-Switch Save Assistant is an independent community project. It is **not affiliated with, endorsed by, or sponsored by Nintendo** or the developers of supported emulators.
-
-[Leia em português](README.pt-BR.md)
 
 ## Supported sources
 
