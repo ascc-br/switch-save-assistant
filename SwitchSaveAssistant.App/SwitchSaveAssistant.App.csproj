@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>SwitchSaveAssistant</AssemblyName>
+    <AssemblyTitle>Switch Save Assistant</AssemblyTitle>
+    <Product>Switch Save Assistant</Product>
+    <Description>Assistente para gerenciamento seguro e manual de saves do Nintendo Switch e emuladores.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SwitchSaveAssistant.Core\SwitchSaveAssistant.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Help\conectar-switch.html" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Help\connect-switch.en-US.html"
+          CopyToOutputDirectory="PreserveNewest"
+          CopyToPublishDirectory="PreserveNewest" />
+    <None Update="Help\conectar-switch.es-ES.html"
+          CopyToOutputDirectory="PreserveNewest"
+          CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

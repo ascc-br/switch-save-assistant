@@ -1,0 +1,397 @@
+<Window x:Class="SwitchSaveAssistant.App.EdenFolderSyncPreviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource Preview_Title}"
+        Width="860"
+        Height="820"
+        MinWidth="720"
+        MinHeight="600"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="CanResize">
+
+    <Grid Margin="22">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="14"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="14"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Cabeçalho -->
+        <Border
+            Grid.Row="0"
+            Padding="18"
+            Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="16">
+
+            <StackPanel>
+
+                <TextBlock
+                    x:Name="TitleText"
+                    FontSize="22"
+                    FontWeight="SemiBold"
+                    Text="{DynamicResource Preview_Title}"/>
+
+                <TextBlock
+                    x:Name="ProfileText"
+                    Margin="0,5,0,0"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    Text="{DynamicResource Preview_Profile}"/>
+
+            </StackPanel>
+
+        </Border>
+
+        <!-- Área central -->
+        <Grid Grid.Row="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Direção, datas e caminhos -->
+            <Border
+                Grid.Row="0"
+                Padding="16"
+                Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="16">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Text="{DynamicResource Preview_Direction}"
+                        FontWeight="SemiBold"/>
+
+                    <StackPanel
+                        Grid.Row="2"
+                        Orientation="Horizontal">
+
+                        <RadioButton
+                            x:Name="EdenToFolderRadio"
+                            Margin="0,0,24,0"
+                            Content="{DynamicResource Preview_EdenToFolder}"
+                            Checked="Direction_Changed"/>
+
+                        <RadioButton
+                            x:Name="FolderToEdenRadio"
+                            Content="{DynamicResource Preview_FolderToEden}"
+                            Checked="Direction_Changed"/>
+
+                    </StackPanel>
+
+                    <!-- Datas / recência -->
+                    <Grid Grid.Row="4">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="18"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border
+                            x:Name="EdenDateCard"
+                            Padding="12,9"
+                            Background="{DynamicResource SubtleFillColorSecondaryBrush}"
+                            CornerRadius="10">
+
+                            <StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <TextBlock
+                                        Text="{DynamicResource Common_Eden}"
+                                        FontWeight="SemiBold"/>
+
+                                    <Border
+                                        x:Name="EdenNewestBadge"
+                                        Margin="8,0,0,0"
+                                        Padding="7,2"
+                                        Background="{DynamicResource SystemFillColorSuccessBackgroundBrush}"
+                                        CornerRadius="999"
+                                        Visibility="Collapsed">
+
+                                        <TextBlock
+                                            Text="{DynamicResource Preview_MostRecent}"
+                                            FontSize="10"
+                                            FontWeight="SemiBold"
+                                            Foreground="{DynamicResource SystemFillColorSuccessBrush}"/>
+
+                                    </Border>
+
+                                </StackPanel>
+
+                                <TextBlock
+                                    x:Name="EdenDateText"
+                                    Margin="0,5,0,0"
+                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                    Text="{DynamicResource Preview_NoDate}"/>
+
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border
+                            Grid.Column="2"
+                            x:Name="FolderDateCard"
+                            Padding="12,9"
+                            Background="{DynamicResource SubtleFillColorSecondaryBrush}"
+                            CornerRadius="10">
+
+                            <StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <TextBlock
+                                        Text="{DynamicResource Common_Folder}"
+                                        FontWeight="SemiBold"/>
+
+                                    <Border
+                                        x:Name="FolderNewestBadge"
+                                        Margin="8,0,0,0"
+                                        Padding="7,2"
+                                        Background="{DynamicResource SystemFillColorSuccessBackgroundBrush}"
+                                        CornerRadius="999"
+                                        Visibility="Collapsed">
+
+                                        <TextBlock
+                                            Text="{DynamicResource Preview_MostRecent}"
+                                            FontSize="10"
+                                            FontWeight="SemiBold"
+                                            Foreground="{DynamicResource SystemFillColorSuccessBrush}"/>
+
+                                    </Border>
+
+                                </StackPanel>
+
+                                <TextBlock
+                                    x:Name="FolderDateText"
+                                    Margin="0,5,0,0"
+                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                    Text="{DynamicResource Preview_NoDate}"/>
+
+                            </StackPanel>
+
+                        </Border>
+
+                    </Grid>
+
+                    <!-- Origem e destino -->
+                    <Grid Grid.Row="6">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel>
+
+                            <TextBlock
+                                Text="{DynamicResource Preview_Source}"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"/>
+
+                            <TextBlock
+                                x:Name="SourcePathText"
+                                Margin="0,4,0,0"
+                                MaxHeight="48"
+                                TextWrapping="Wrap"
+                                TextTrimming="CharacterEllipsis"
+                                FontWeight="SemiBold"
+                                ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}"/>
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+
+                            <TextBlock
+                                Text="{DynamicResource Preview_Destination}"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"/>
+
+                            <TextBlock
+                                x:Name="DestinationPathText"
+                                Margin="0,4,0,0"
+                                MaxHeight="48"
+                                TextWrapping="Wrap"
+                                TextTrimming="CharacterEllipsis"
+                                FontWeight="SemiBold"
+                                ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </Grid>
+
+            </Border>
+
+            <!-- Alterações: ocupa todo o espaço restante -->
+            <Border
+                Grid.Row="2"
+                Padding="16"
+                Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="16">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock
+                            Text="{DynamicResource Preview_PlannedChanges}"
+                            FontSize="17"
+                            FontWeight="SemiBold"/>
+
+                        <TextBlock
+                            Grid.Column="1"
+                            x:Name="ChangeSummaryText"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"/>
+
+                    </Grid>
+
+                    <Border
+                        Grid.Row="2"
+                        Padding="10,7"
+                        Background="{DynamicResource SystemFillColorAttentionBackgroundBrush}"
+                        CornerRadius="9">
+
+                        <TextBlock
+                            x:Name="SuggestionText"
+                            Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+                            TextWrapping="Wrap"
+                            Text="{DynamicResource Preview_RecencyHint}"/>
+
+                    </Border>
+
+                    <ListBox
+                        Grid.Row="4"
+                        x:Name="ChangesList"
+                        MinHeight="120"
+                        BorderThickness="0"
+                        Background="Transparent"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                        <ListBox.ItemTemplate>
+
+                            <DataTemplate>
+
+                                <Grid Margin="2,4">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="90"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock
+                                        Text="{Binding Operation}"
+                                        FontWeight="SemiBold"/>
+
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Text="{Binding RelativePath}"
+                                        TextTrimming="CharacterEllipsis"
+                                        ToolTip="{Binding RelativePath}"/>
+
+                                </Grid>
+
+                            </DataTemplate>
+
+                        </ListBox.ItemTemplate>
+
+                    </ListBox>
+
+                </Grid>
+
+            </Border>
+
+        </Grid>
+
+        <!-- Rodapé sempre visível -->
+        <Grid Grid.Row="4">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                x:Name="SafetyText"
+                Margin="0,0,14,0"
+                VerticalAlignment="Center"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                TextWrapping="Wrap"
+                Text="{DynamicResource Preview_SafetyHint}"/>
+
+            <Button
+                Grid.Column="1"
+                Width="110"
+                Height="38"
+                Content="{DynamicResource Preview_Cancel}"
+                IsCancel="True"/>
+
+            <Button
+                Grid.Column="3"
+                x:Name="ConfirmButton"
+                Width="160"
+                Height="38"
+                Content="{DynamicResource Preview_ConfirmCopy}"
+                IsDefault="True"
+                IsEnabled="False"
+                Click="Confirm_Click"/>
+
+        </Grid>
+
+    </Grid>
+
+</Window>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

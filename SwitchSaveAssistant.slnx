@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="SwitchSaveAssistant.App/SwitchSaveAssistant.App.csproj" />
+  <Project Path="SwitchSaveAssistant.Core/SwitchSaveAssistant.Core.csproj" />
+  <Project Path="SwitchSaveAssistant.Probe/SwitchSaveAssistant.Probe.csproj" />
+  <Project Path="SwitchSaveAssistant.Tests/SwitchSaveAssistant.Tests.csproj" />
+</Solution>

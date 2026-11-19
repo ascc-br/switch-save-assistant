@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Switch Save Assistant - Como conectar o Switch</title>
+
+    <style>
+        :root {
+            color-scheme: light dark;
+
+            --background: #f4f4f4;
+            --surface: #ffffff;
+            --text: #202020;
+            --muted: #666666;
+            --border: #d5d5d5;
+            --accent: #0067c0;
+            --success: #107c10;
+            --warning: #fff4ce;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background: #1e1e1e;
+                --surface: #292929;
+                --text: #f2f2f2;
+                --muted: #b9b9b9;
+                --border: #484848;
+                --accent: #60aef3;
+                --success: #6ccb5f;
+                --warning: #493d17;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 32px 20px;
+
+            background: var(--background);
+            color: var(--text);
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            line-height: 1.55;
+        }
+
+        main {
+            max-width: 820px;
+            margin: auto;
+        }
+
+        h1 {
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            margin-top: 0;
+            color: var(--muted);
+        }
+
+        .warning {
+            margin: 24px 0;
+            padding: 16px;
+
+            background: var(--warning);
+            border-radius: 8px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 44px 1fr;
+            gap: 14px;
+
+            margin: 12px 0;
+            padding: 18px;
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .number {
+            width: 34px;
+            height: 34px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--accent);
+            color: white;
+
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        .step h2 {
+            margin: 2px 0 6px;
+            font-size: 17px;
+        }
+
+        .step p {
+            margin: 0;
+        }
+
+        code {
+            padding: 2px 5px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+
+        .success {
+            margin-top: 24px;
+            padding: 18px;
+
+            background: var(--surface);
+            border-left: 4px solid var(--success);
+        }
+
+        .trouble {
+            margin-top: 16px;
+            padding: 18px;
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        li {
+            margin: 7px 0;
+        }
+    </style>
+</head>
+
+<body>
+<main>
+
+    <h1>Como conectar o Nintendo Switch</h1>
+
+    <p class="subtitle">
+        Conexão usada pelo Switch Save Assistant:
+        USB-C + DBI + MTP.
+    </p>
+
+    <div class="warning">
+        <strong>Importante:</strong>
+        mantenha o Nintendo Switch offline.
+        O Switch Save Assistant não precisa de internet no console.
+    </div>
+
+    <div class="step">
+        <div class="number">1</div>
+
+        <div>
+            <h2>Inicie o Switch com Atmosphère</h2>
+
+            <p>
+                Entre normalmente no ambiente em que você utiliza
+                Atmosphère e hbmenu.
+            </p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="number">2</div>
+
+        <div>
+            <h2>Abra o DBI</h2>
+
+            <p>
+                Execute o <strong>DBI</strong> através do hbmenu.
+            </p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="number">3</div>
+
+        <div>
+            <h2>Conecte o cabo USB-C</h2>
+
+            <p>
+                Conecte o Switch diretamente ao computador usando
+                um cabo que suporte transferência de dados.
+            </p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="number">4</div>
+
+        <div>
+            <h2>Ative o MTP responder</h2>
+
+            <p>
+                No menu principal do DBI, selecione:
+                <code>Run MTP responder</code>.
+            </p>
+
+            <p style="margin-top:8px;">
+                No menu principal do DBI, o botão
+                <strong>X</strong> também inicia esse modo.
+            </p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="number">5</div>
+
+        <div>
+            <h2>Confira no Windows</h2>
+
+            <p>
+                Abra o Explorador de Arquivos.
+                Em <strong>Este Computador</strong>,
+                deverá aparecer um dispositivo chamado
+                <strong>Switch</strong>.
+            </p>
+
+            <p style="margin-top:8px;">
+                Entre as áreas disponibilizadas pelo DBI,
+                deverão existir:
+                <code>1: SD Card</code>
+                e
+                <code>7: Saves</code>.
+            </p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="number">6</div>
+
+        <div>
+            <h2>Volte ao Switch Save Assistant</h2>
+
+            <p>
+                Na tela <strong>Folder ⇄ Switch</strong>,
+                clique em <strong>Detectar</strong>.
+            </p>
+        </div>
+    </div>
+
+    <div class="success">
+        <strong>Resultado esperado</strong>
+
+        <p>
+            O Switch Save Assistant deverá mostrar:
+        </p>
+
+        <p>
+            <code>● Conectado: Switch</code>
+        </p>
+    </div>
+
+    <h2>Switch não detectado?</h2>
+
+    <div class="trouble">
+        <ul>
+            <li>
+                Confira se o DBI ainda está em
+                <code>Run MTP responder</code>.
+            </li>
+
+            <li>
+                Desconecte e reconecte o cabo USB-C.
+            </li>
+
+            <li>
+                Experimente outra porta USB.
+            </li>
+
+            <li>
+                Confirme que o cabo suporta dados,
+                não apenas carregamento.
+            </li>
+
+            <li>
+                Verifique se o dispositivo
+                <strong>Switch</strong>
+                aparece no Explorador de Arquivos.
+            </li>
+
+            <li>
+                Se necessário, saia do MTP responder
+                e entre novamente.
+            </li>
+        </ul>
+    </div>
+
+</main>
+</body>
+</html>

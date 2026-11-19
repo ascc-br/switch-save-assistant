@@ -1,0 +1,55 @@
+# .NET
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build / publish
+artifacts/
+publish/
+TestResults/
+*.nupkg
+*.snupkg
+
+# Dados reais / temporários do SwitchSaveSync
+TestBackup/
+TestBackups/
+SafetyBackup/
+SafetyBackups/
+SyncData/
+
+# Arquivos temporários
+*.tmp
+*.bak
+*.log
+
+# SO
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Resíduos locais de desenvolvimento / diagnóstico
+_backups/
+RestoreStaging/
+/0
+/manifest-teste-alterado.txt
+/mtp-*.txt
+
+# Dados locais e informações privadas (não publicar)
+settings.json
+profiles.json
+profiles.dat
+.env
+.env.*
+!.env.example
+
+# Backups locais de arquivos
+*.bak-*

@@ -1,0 +1,373 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <sys:String x:Key="App_Name">Switch Save Assistant</sys:String>
+
+    <sys:String x:Key="Main_Subtitle">Manage saves safely with assisted transfers and explicit review.</sys:String>
+    <sys:String x:Key="Main_FolderSwitchTitle">Folder ⇄ Switch</sys:String>
+    <sys:String x:Key="Main_FolderSwitchDescription">Compare a local or remote folder with saves exposed by DBI and open both sides in Explorer.</sys:String>
+    <sys:String x:Key="Main_EmulatorFolderTitle">Emulator ⇄ Folder</sys:String>
+    <sys:String x:Key="Main_EmulatorFolderDescription">Compare emulator saves with the central Folder. Eden is available now; Citron and Ryujinx providers are being added.</sys:String>
+    <sys:String x:Key="Main_OpenModule">Open module</sys:String>
+    <sys:String x:Key="Main_Settings">⚙ Settings</sys:String>
+    <sys:String x:Key="Main_SwitchUnchecked">Switch: not checked yet</sys:String>
+    <sys:String x:Key="Main_EmulatorPendingTitle">Emulator provider not available yet</sys:String>
+    <sys:String x:Key="Main_EmulatorPendingMessage">{0} is already saved as your preferred emulator, but its provider will be enabled in the next compatibility stages.</sys:String>
+
+    <sys:String x:Key="Settings_Title">Settings</sys:String>
+    <sys:String x:Key="Settings_Header">Settings</sys:String>
+    <sys:String x:Key="Settings_Description">Choose the application language, theme, central Folder and preferred emulator.</sys:String>
+    <sys:String x:Key="Settings_Language">Language</sys:String>
+    <sys:String x:Key="Settings_Theme">Theme</sys:String>
+    <sys:String x:Key="Settings_Folder">Central Folder</sys:String>
+    <sys:String x:Key="Settings_DefaultEmulator">Default emulator</sys:String>
+    <sys:String x:Key="Settings_SelectFolder">Choose folder...</sys:String>
+    <sys:String x:Key="Settings_Save">Save</sys:String>
+    <sys:String x:Key="Settings_Cancel">Cancel</sys:String>
+    <sys:String x:Key="Settings_LanguageEnglish">English</sys:String>
+    <sys:String x:Key="Settings_LanguageSpanish">Español</sys:String>
+    <sys:String x:Key="Settings_LanguagePortuguese">Português (Brasil)</sys:String>
+    <sys:String x:Key="Settings_ThemeSystem">System</sys:String>
+    <sys:String x:Key="Settings_ThemeLight">Light</sys:String>
+    <sys:String x:Key="Settings_ThemeDark">Dark</sys:String>
+    <sys:String x:Key="Settings_EmulatorAutomatic">Automatic</sys:String>
+    <sys:String x:Key="Settings_EmulatorEden">Eden</sys:String>
+    <sys:String x:Key="Settings_EmulatorCitron">Citron</sys:String>
+    <sys:String x:Key="Settings_EmulatorRyujinx">Ryujinx</sys:String>
+
+    <!-- 13.2B - internal screens -->
+    <sys:String x:Key="Common_Folder">Folder</sys:String>
+    <sys:String x:Key="Common_Eden">Eden</sys:String>
+    <sys:String x:Key="Common_Filter">Filter:</sys:String>
+    <sys:String x:Key="Common_All">All</sys:String>
+    <sys:String x:Key="Common_Synchronized">Synchronized</sys:String>
+    <sys:String x:Key="Common_Divergent">Divergent</sys:String>
+    <sys:String x:Key="Common_WithErrors">With errors</sys:String>
+    <sys:String x:Key="Common_Comparing">Comparing...</sys:String>
+    <sys:String x:Key="Preview_Title">Review synchronization</sys:String>
+    <sys:String x:Key="Preview_Profile">Profile</sys:String>
+    <sys:String x:Key="Preview_Direction">Direction</sys:String>
+    <sys:String x:Key="Preview_EdenToFolder">Eden → Folder</sys:String>
+    <sys:String x:Key="Preview_FolderToEden">Folder → Eden</sys:String>
+    <sys:String x:Key="Preview_MostRecent">Most recent</sys:String>
+    <sys:String x:Key="Preview_NoDate">No date available</sys:String>
+    <sys:String x:Key="Preview_Source">Source</sys:String>
+    <sys:String x:Key="Preview_Destination">Destination</sys:String>
+    <sys:String x:Key="Preview_PlannedChanges">Planned changes</sys:String>
+    <sys:String x:Key="Preview_RecencyHint">The most recent date is shown only as a reference; the direction remains under your control.</sys:String>
+    <sys:String x:Key="Preview_SafetyHint">If the destination already exists, a validated backup will be created before replacement.</sys:String>
+    <sys:String x:Key="Preview_Cancel">Cancel</sys:String>
+    <sys:String x:Key="Preview_ConfirmCopy">Confirm copy</sys:String>
+    <sys:String x:Key="Emulator_Title">Eden ⇄ Folder</sys:String>
+    <sys:String x:Key="Emulator_Description">Compare Eden saves with the central Folder using SHA-256.</sys:String>
+    <sys:String x:Key="Emulator_CloseBeforeCopy">Close Eden before copying</sys:String>
+    <sys:String x:Key="Emulator_CentralSaveFolder">Central save Folder</sys:String>
+    <sys:String x:Key="Emulator_NoFolderSelected">No folder selected</sys:String>
+    <sys:String x:Key="Emulator_SelectFolder">Choose folder...</sys:String>
+    <sys:String x:Key="Emulator_RootDescription">Default, portable or custom NAND</sys:String>
+    <sys:String x:Key="Emulator_NotDetected">Not detected yet</sys:String>
+    <sys:String x:Key="Emulator_SearchingDefault">○ Looking for default installation...</sys:String>
+    <sys:String x:Key="Emulator_Detect">Detect</sys:String>
+    <sys:String x:Key="Emulator_ChooseRoot">Choose root...</sys:String>
+    <sys:String x:Key="Emulator_EdenSaves">Eden saves</sys:String>
+    <sys:String x:Key="Emulator_OnlyEden">Eden only</sys:String>
+    <sys:String x:Key="Emulator_OnlyFolder">Folder only</sys:String>
+    <sys:String x:Key="Emulator_ShowEmpty">Show empty</sys:String>
+    <sys:String x:Key="Emulator_SafetyBackups">Safety backups</sys:String>
+    <sys:String x:Key="Switch_Description">Select the central Folder, connect DBI and compare saves before opening both sides in Explorer.</sys:String>
+    <sys:String x:Key="Switch_CentralSaveFolder">Central save Folder</sys:String>
+    <sys:String x:Key="Switch_NoFolderSelected">No folder selected</sys:String>
+    <sys:String x:Key="Switch_SelectFolder">Choose folder...</sys:String>
+    <sys:String x:Key="Switch_DetectionReadOnly">Read-only detection and comparison</sys:String>
+    <sys:String x:Key="Switch_NotChecked">○ Not checked yet</sys:String>
+    <sys:String x:Key="Switch_Detect">Detect</sys:String>
+    <sys:String x:Key="Switch_Help">How do I connect the Switch?</sys:String>
+    <sys:String x:Key="Switch_GamesAndProfiles">Games and profiles</sys:String>
+    <sys:String x:Key="Switch_OnlyFolder">Folder only</sys:String>
+    <sys:String x:Key="Switch_OnlySwitch">Switch only</sys:String>
+    <sys:String x:Key="Backups_Title">Safety backups</sys:String>
+    <sys:String x:Key="Backups_Loading">Loading...</sys:String>
+    <sys:String x:Key="Backups_Refresh">Refresh</sys:String>
+    <sys:String x:Key="Backups_OpenFolder">Open folder</sys:String>
+    <sys:String x:Key="Backups_ColumnDate">Date</sys:String>
+    <sys:String x:Key="Backups_ColumnGame">Game</sys:String>
+    <sys:String x:Key="Backups_ColumnProfile">Profile</sys:String>
+    <sys:String x:Key="Backups_ColumnDestination">Destination</sys:String>
+    <sys:String x:Key="Backups_ColumnStatus">Status</sys:String>
+    <sys:String x:Key="Backups_Details">Details</sys:String>
+    <sys:String x:Key="Backups_SelectBackup">Select a backup.</sys:String>
+    <sys:String x:Key="Backups_NoneSelected">No backup selected.</sys:String>
+    <sys:String x:Key="Backups_RestoreSelected">Restore selected...</sys:String>
+    <sys:String x:Key="Backups_OpenSelected">Open this backup</sys:String>
+    <sys:String x:Key="Backups_LegacyHint">Legacy backups are view-only.</sys:String>
+    <sys:String x:Key="Backups_Close">Close</sys:String>
+
+    <!-- 13.2B2 - runtime localization -->
+    <sys:String x:Key="Common_SelectCentralFolderDialog">Select the central save folder</sys:String>
+    <sys:String x:Key="Common_Verifying">Verifying...</sys:String>
+    <sys:String x:Key="Common_Detect">Detect</sys:String>
+    <sys:String x:Key="Common_VerifyAgain">Verify again</sys:String>
+    <sys:String x:Key="Common_CannotReadFolderTitle">Could not read the Folder</sys:String>
+    <sys:String x:Key="Common_NoSavesForFilter">No save matches the selected filter.</sys:String>
+    <sys:String x:Key="Common_NoDate">No date available</sys:String>
+    <sys:String x:Key="Common_MostRecent">Most recent</sys:String>
+    <sys:String x:Key="Common_DeviceShared">Device / shared</sys:String>
+    <sys:String x:Key="Common_Error">Error</sys:String>
+    <sys:String x:Key="Common_Waiting">Waiting</sys:String>
+    <sys:String x:Key="Common_SynchronizedSingle">Synchronized</sys:String>
+    <sys:String x:Key="Common_CannotOpenExplorersTitle">Could not open Explorer windows</sys:String>
+    <sys:String x:Key="Preview_ProfileValue">Profile: {0}</sys:String>
+    <sys:String x:Key="Preview_DeviceTooltip">This save belongs to Eden's device/shared namespace. It is synchronized only as Device ↔ Device and never with a user profile.</sys:String>
+    <sys:String x:Key="Preview_ChooseDirection">Choose the synchronization direction.</sys:String>
+    <sys:String x:Key="Preview_RecencyEdenNewer">Reference: Eden contains the most recent change. If it represents your current progress, consider Eden → Folder.</sys:String>
+    <sys:String x:Key="Preview_RecencyFolderNewer">Reference: Folder contains the most recent change. If it represents your current progress, consider Folder → Eden.</sys:String>
+    <sys:String x:Key="Preview_RecencySame">The most recent dates are equivalent (difference of up to 2 seconds). Use the differences list to decide the direction.</sys:String>
+    <sys:String x:Key="Preview_RecencyUnknown">There is not enough date information on both sides to suggest a direction. The choice remains fully manual.</sys:String>
+    <sys:String x:Key="Preview_NoDifferences">No differences</sys:String>
+    <sys:String x:Key="Preview_ChangesCount">{0} change(s)</sys:String>
+    <sys:String x:Key="Preview_DestinationExistsSafety">The destination exists. A validated backup will be created before replacement.</sys:String>
+    <sys:String x:Key="Preview_DestinationMissingSafety">The destination does not exist yet. The new folder will be created after SHA-256 validation.</sys:String>
+    <sys:String x:Key="Emulator_SelectRootDialog">Select the Eden root, portable user folder, NAND or save folder</sys:String>
+    <sys:String x:Key="Emulator_NotFoundTitle">Eden not found</sys:String>
+    <sys:String x:Key="Emulator_NotDetectedAutomatically">Not detected automatically</sys:String>
+    <sys:String x:Key="Emulator_UseChooseRoot">○ Use “Choose root...” for portable or custom Eden</sys:String>
+    <sys:String x:Key="Emulator_DefaultNotFound1">The default Eden save tree was not found.</sys:String>
+    <sys:String x:Key="Emulator_DefaultNotFound2">If you use portable mode, a custom NAND or custom Save Data, click “Choose root...”.</sys:String>
+    <sys:String x:Key="Emulator_DefaultNotDetectedTitle">Eden was not detected automatically</sys:String>
+    <sys:String x:Key="Emulator_SourceManual">Manually selected root</sys:String>
+    <sys:String x:Key="Emulator_SourceDefault">Default Eden detected</sys:String>
+    <sys:String x:Key="Emulator_SourceSaved">Saved Eden detected</sys:String>
+    <sys:String x:Key="Emulator_NamedProfiles">{0}/{1} named profile(s) • </sys:String>
+    <sys:String x:Key="Emulator_NamedGames">{0}/{1} named game(s)</sys:String>
+    <sys:String x:Key="Emulator_SummaryProfiles">{0} profile(s) • </sys:String>
+    <sys:String x:Key="Emulator_SummaryGames">{0} game(s) • </sys:String>
+    <sys:String x:Key="Emulator_SummarySync">Sync: {0} • </sys:String>
+    <sys:String x:Key="Emulator_SummaryDivergent">Divergent: {0} • </sys:String>
+    <sys:String x:Key="Emulator_SummaryEdenOnly">Eden only: {0} • </sys:String>
+    <sys:String x:Key="Emulator_SummaryFolderOnly">Folder only: {0}</sys:String>
+    <sys:String x:Key="Emulator_SummaryErrors"> • Errors: {0}</sys:String>
+    <sys:String x:Key="Emulator_DetectOrSelectRoot">Detect or select the Eden root.</sys:String>
+    <sys:String x:Key="Emulator_CloseBeforeSync1">Close Eden before synchronizing saves.</sys:String>
+    <sys:String x:Key="Emulator_CloseBeforeSync2">This prevents the emulator from changing files while the copy is being validated.</sys:String>
+    <sys:String x:Key="Emulator_EdenOpenTitle">Eden is open</sys:String>
+    <sys:String x:Key="Emulator_SyncPathsUnavailable">The source and destination paths could not be determined safely.</sys:String>
+    <sys:String x:Key="Emulator_SyncUnavailableTitle">Synchronization unavailable</sys:String>
+    <sys:String x:Key="Emulator_EdenOpenedDuringReview">Eden was opened during the review. Close it and try again.</sys:String>
+    <sys:String x:Key="Emulator_SyncCanceledTitle">Synchronization canceled</sys:String>
+    <sys:String x:Key="Emulator_PreparingSync">Preparing synchronization...</sys:String>
+    <sys:String x:Key="Emulator_SyncSuccess">Synchronization completed and validated with SHA-256.</sys:String>
+    <sys:String x:Key="Emulator_DestinationBlock">Destination:
+{0}</sys:String>
+    <sys:String x:Key="Emulator_VerifiedFiles">Verified files: {0}</sys:String>
+    <sys:String x:Key="Emulator_SafetyBackupBlock">Safety backup:
+{0}</sys:String>
+    <sys:String x:Key="Emulator_SyncCompletedTitle">Synchronization completed</sys:String>
+    <sys:String x:Key="Emulator_SyncFailedPrefix">Could not complete synchronization.</sys:String>
+    <sys:String x:Key="Emulator_SyncInterruptedTitle">Synchronization interrupted</sys:String>
+    <sys:String x:Key="Emulator_ActionCopyFolder">Copy → Folder</sys:String>
+    <sys:String x:Key="Emulator_ActionCopyEden">Copy → Eden</sys:String>
+    <sys:String x:Key="Emulator_ActionResolve">Resolve...</sys:String>
+    <sys:String x:Key="Emulator_InvalidSaveTree">A valid Eden save tree was not found.</sys:String>
+    <sys:String x:Key="Emulator_UnregisteredProfile">Unregistered profile</sys:String>
+    <sys:String x:Key="Switch_SelectFolderFirst">Select the Folder first.</sys:String>
+    <sys:String x:Key="Switch_DetectFirst">Detect the Nintendo Switch first.</sys:String>
+    <sys:String x:Key="Switch_Detecting">Detecting...</sys:String>
+    <sys:String x:Key="Switch_PreparingCheck">Preparing verification...</sys:String>
+    <sys:String x:Key="Switch_ComparingCount">Comparing {0}/{1}</sys:String>
+    <sys:String x:Key="Switch_SearchingDbi">◌ Looking for DBI...</sys:String>
+    <sys:String x:Key="Switch_Connected">● Connected: {0}</sys:String>
+    <sys:String x:Key="Switch_DbiNotFound">● DBI not found</sys:String>
+    <sys:String x:Key="Switch_NotFoundTitle">Nintendo Switch not found</sys:String>
+    <sys:String x:Key="Switch_NoneOnBoth">No save is present on both sides.</sys:String>
+    <sys:String x:Key="Switch_HelpNotFound">Help file not found:
+
+{0}</sys:String>
+    <sys:String x:Key="Switch_NoSavesFound">No saves found</sys:String>
+    <sys:String x:Key="Switch_NoSavesEither">No save was found in the Folder or on the Switch.</sys:String>
+    <sys:String x:Key="Switch_SummaryTotal">{0} save(s) • </sys:String>
+    <sys:String x:Key="Switch_SummaryFolder">Folder: {0} • </sys:String>
+    <sys:String x:Key="Switch_SummarySwitch">Switch: {0} • </sys:String>
+    <sys:String x:Key="Switch_SummarySynchronized">Synchronized: {0} • </sys:String>
+    <sys:String x:Key="Switch_SummaryDivergent">Divergent: {0}</sys:String>
+    <sys:String x:Key="Switch_SummaryErrors"> • Errors: {0}</sys:String>
+    <sys:String x:Key="Switch_InstalledGames">Installed games</sys:String>
+    <sys:String x:Key="Switch_UninstalledGames">Uninstalled games</sys:String>
+    <sys:String x:Key="Switch_OpenSideBySide">Open side by side</sys:String>
+    <sys:String x:Key="Switch_PresenceBothUncompared">Present on both sides; content not compared yet.</sys:String>
+    <sys:String x:Key="Switch_PresenceOnlyFolder">This save exists only in the Folder.</sys:String>
+    <sys:String x:Key="Switch_PresenceOnlySwitch">This save exists only on the Switch.</sys:String>
+    <sys:String x:Key="Switch_StateSynchronized">✓ Synchronized</sys:String>
+    <sys:String x:Key="Switch_StateDivergent">⚠ Divergent</sys:String>
+    <sys:String x:Key="Switch_StateError">✕ Error</sys:String>
+    <sys:String x:Key="Switch_StateNotCompared">○ Not compared</sys:String>
+    <sys:String x:Key="Switch_StateOnlyFolder">← Folder only</sys:String>
+    <sys:String x:Key="Switch_StateOnlySwitch">→ Switch only</sys:String>
+    <sys:String x:Key="Backups_SummaryTotal">{0} backup(s) • </sys:String>
+    <sys:String x:Key="Backups_SummaryRestorable">{0} restorable • </sys:String>
+    <sys:String x:Key="Backups_SummaryLegacy">{0} legacy</sys:String>
+    <sys:String x:Key="Backups_FolderPath">Folder: {0}</sys:String>
+    <sys:String x:Key="Backups_GameLine">Game: {0}
+</sys:String>
+    <sys:String x:Key="Backups_ProfileLine">Profile: {0}
+</sys:String>
+    <sys:String x:Key="Backups_DateLine">Date: {0}
+</sys:String>
+    <sys:String x:Key="Backups_DestinationLine">Destination: {0}
+</sys:String>
+    <sys:String x:Key="Backups_FilesLine">Files: {0}
+</sys:String>
+    <sys:String x:Key="Backups_SizeLine">Size: {0}
+
+</sys:String>
+    <sys:String x:Key="Backups_BackupBlock">Backup:
+{0}
+
+</sys:String>
+    <sys:String x:Key="Backups_OriginalUnknown">Original destination: unknown</sys:String>
+    <sys:String x:Key="Backups_OriginalBlock">Original destination:
+{0}</sys:String>
+    <sys:String x:Key="Backups_RestorableDetail">Restorable: the original destination is recorded. Another rollback of the current state will be created before restoring.</sys:String>
+    <sys:String x:Key="Backups_LegacyDetail">Legacy / view-only: this backup was created before restore metadata and will not be applied automatically.</sys:String>
+    <sys:String x:Key="Backups_CloseEdenRestore">Close Eden before restoring a backup whose destination is the emulator.</sys:String>
+    <sys:String x:Key="Backups_NotRestorableTitle">Backup cannot be restored</sys:String>
+    <sys:String x:Key="Backups_MoreChanges">
+• ... +{0} change(s)</sys:String>
+    <sys:String x:Key="Backups_RestoreQuestion">Restore this backup?
+
+</sys:String>
+    <sys:String x:Key="Backups_BackupDateLine">Backup: {0}
+</sys:String>
+    <sys:String x:Key="Backups_PlannedChangesLine">Planned changes: {0}
+</sys:String>
+    <sys:String x:Key="Backups_NoDifferencesDetected">No differences detected.</sys:String>
+    <sys:String x:Key="Backups_BeforeReplaceRollback">
+
+Before replacing the current destination, the app will create and validate a rollback.</sys:String>
+    <sys:String x:Key="Backups_ConfirmRestoreTitle">Confirm restore</sys:String>
+    <sys:String x:Key="Backups_RestoreSuccess">Backup restored and validated with SHA-256.</sys:String>
+    <sys:String x:Key="Backups_RollbackBlock">Rollback of previous state:
+{0}</sys:String>
+    <sys:String x:Key="Backups_RestoreCompletedTitle">Restore completed</sys:String>
+    <sys:String x:Key="Backups_RestoreFailedPrefix">The restore was interrupted.</sys:String>
+    <sys:String x:Key="Backups_RestoreFailedTitle">Restore failed</sys:String>
+    <sys:String x:Key="Backups_StatusRestorable">Restorable</sys:String>
+    <sys:String x:Key="Backups_StatusLegacy">Legacy • view-only</sys:String>
+    <sys:String x:Key="Progress_RevalidatingSource">Revalidating source...</sys:String>
+    <sys:String x:Key="Progress_CreatingSafetyBackup">Creating destination safety backup...</sys:String>
+    <sys:String x:Key="Progress_CopyingToStaging">Copying to staging...</sys:String>
+    <sys:String x:Key="Progress_ValidatingStaging">Validating staging with SHA-256...</sys:String>
+    <sys:String x:Key="Progress_ReplacingDestination">Replacing destination...</sys:String>
+    <sys:String x:Key="Progress_VerifyingFinal">Verifying final result...</sys:String>
+    <sys:String x:Key="Progress_CreatingRollback">Creating rollback of current state...</sys:String>
+    <sys:String x:Key="Progress_CopyingBackupToStaging">Copying backup to staging...</sys:String>
+    <sys:String x:Key="Progress_ValidatingRestoreFinal">Validating final restore...</sys:String>
+    <sys:String x:Key="Progress_RestoringRollback">Failure detected; restoring rollback...</sys:String>
+    <sys:String x:Key="Emulator_StateSynchronized">✓ Synchronized</sys:String>
+    <sys:String x:Key="Emulator_StateDivergent">⚠ Divergent</sys:String>
+    <sys:String x:Key="Emulator_StateOnlyEden">→ Eden only</sys:String>
+    <sys:String x:Key="Emulator_StateOnlyFolder">← Folder only</sys:String>
+    <sys:String x:Key="Emulator_StateError">✕ Error</sys:String>
+    <sys:String x:Key="Emulator_StateNotCompared">○ Not compared</sys:String>
+    <sys:String x:Key="Emulator_DetailOnlyEden">This save exists only in Eden.</sys:String>
+    <sys:String x:Key="Emulator_DetailOnlyFolder">This save exists only in the Folder.</sys:String>
+    <sys:String x:Key="Emulator_DetailNotCompared">Present on both sides; not compared yet.</sys:String>
+
+    <!-- 13.3A - Player profiles -->
+    <sys:String x:Key="Profiles_OpenManager">👤 Player profiles</sys:String>
+    <sys:String x:Key="Profiles_Title">Player profiles</sys:String>
+    <sys:String x:Key="Profiles_Description">Create logical players and explicitly link the corresponding native profile in each environment. No saves or emulator profile files are modified on this screen.</sys:String>
+    <sys:String x:Key="Profiles_NewPlayer">New logical player</sys:String>
+    <sys:String x:Key="Profiles_Create">Create</sys:String>
+    <sys:String x:Key="Profiles_LogicalPlayers">Logical players</sys:String>
+    <sys:String x:Key="Profiles_ColumnPlayer">Player</sys:String>
+    <sys:String x:Key="Profiles_ColumnName">Name</sys:String>
+    <sys:String x:Key="Profiles_ColumnId">Native ID</sys:String>
+    <sys:String x:Key="Profiles_ColumnStatus">Status</sys:String>
+    <sys:String x:Key="Profiles_ColumnGames">Games</sys:String>
+    <sys:String x:Key="Profiles_ColumnIdentity">Identity</sys:String>
+    <sys:String x:Key="Profiles_UnlinkEden">Unlink Eden</sys:String>
+    <sys:String x:Key="Profiles_UnlinkSwitch">Unlink Switch</sys:String>
+    <sys:String x:Key="Profiles_Delete">Delete player</sys:String>
+    <sys:String x:Key="Profiles_Refresh">Refresh</sys:String>
+    <sys:String x:Key="Profiles_LinkEden">Link selected Eden</sys:String>
+    <sys:String x:Key="Profiles_DetectSwitch">Detect DBI</sys:String>
+    <sys:String x:Key="Profiles_LinkSwitch">Link selected Switch</sys:String>
+    <sys:String x:Key="Profiles_SafetyNote">Device/shared is never linkable to a player. Eden uses its stable 32-hex native ID. The current DBI provider exposes only the Switch save entry name, so Switch bindings are explicitly marked as name-only until a stable account UID can be obtained.</sys:String>
+    <sys:String x:Key="Profiles_SelectLogical">Select a logical player first.</sys:String>
+    <sys:String x:Key="Profiles_SelectEden">Select an Eden profile.</sys:String>
+    <sys:String x:Key="Profiles_SelectSwitch">Select a Switch profile.</sys:String>
+    <sys:String x:Key="Profiles_DeviceCannotLink">Device/shared cannot be linked to a player.</sys:String>
+    <sys:String x:Key="Profiles_ConfirmDelete">Delete logical player “{0}”? This removes only the Assistant links; it does not delete saves.</sys:String>
+    <sys:String x:Key="Profiles_EdenRootMissing">No saved Eden root. Configure/detect Eden in the emulator module first.</sys:String>
+    <sys:String x:Key="Profiles_Unregistered">Unregistered profile</sys:String>
+    <sys:String x:Key="Profiles_StatusDevice">Device/shared</sys:String>
+    <sys:String x:Key="Profiles_StatusRegistered">Registered</sys:String>
+    <sys:String x:Key="Profiles_StatusOrphan">Orphaned</sys:String>
+    <sys:String x:Key="Profiles_EdenSummary">{0} user profile(s) • {1} orphaned</sys:String>
+    <sys:String x:Key="Profiles_SwitchNotScanned">DBI has not been scanned yet.</sys:String>
+    <sys:String x:Key="Profiles_SwitchScanning">Scanning Switch saves through DBI...</sys:String>
+    <sys:String x:Key="Profiles_IdentityNameOnly">Name only • no stable UID</sys:String>
+    <sys:String x:Key="Profiles_SwitchSummary">{0} user profile name(s) found through DBI.</sys:String>
+    <sys:String x:Key="Profiles_SwitchDetectionFailed">Could not scan Switch profiles: {0}</sys:String>
+
+    <!-- 13.3B1 - logical profile resolver -->
+    <sys:String x:Key="Switch_ProfileAliasConflict">⚠ Profile alias conflict</sys:String>
+    <sys:String x:Key="Switch_ProfileAliasConflictDetail">Logical player “{0}” has multiple Folder aliases for this game: {1}. Automatic pairing is blocked until the conflict is repaired.</sys:String>
+    <sys:String x:Key="Switch_ProfileAliasConflictOpenBlocked">This entry has an unresolved profile-alias conflict. Resolve it in Player profiles before opening the pair.</sys:String>
+    <sys:String x:Key="Switch_ProfileLinkedDetail">Logical player: {0} • Folder: {1} • Switch: {2}</sys:String>
+
+    <!-- 13.3B2 - alias conflict repair -->
+    <sys:String x:Key="AliasRepair_Open">Resolve conflict</sys:String>
+    <sys:String x:Key="AliasRepair_Title">Resolve profile alias conflict</sys:String>
+    <sys:String x:Key="AliasRepair_Context">{0} • logical player: {1}</sys:String>
+    <sys:String x:Key="AliasRepair_KeepVersion">Version to keep</sys:String>
+    <sys:String x:Key="AliasRepair_Copies">Folder copies</sys:String>
+    <sys:String x:Key="AliasRepair_Files">Files</sys:String>
+    <sys:String x:Key="AliasRepair_Size">Size</sys:String>
+    <sys:String x:Key="AliasRepair_LastWrite">Last change</sys:String>
+    <sys:String x:Key="AliasRepair_Differences">Differences</sys:String>
+    <sys:String x:Key="AliasRepair_Compared">Compared</sys:String>
+    <sys:String x:Key="AliasRepair_Change">Change</sys:String>
+    <sys:String x:Key="AliasRepair_Path">Path</sys:String>
+    <sys:String x:Key="AliasRepair_Cancel">Cancel</sys:String>
+    <sys:String x:Key="AliasRepair_Repair">Repair conflict</sys:String>
+    <sys:String x:Key="AliasRepair_InvalidConflict">This conflict does not contain enough safe information for automatic repair.</sys:String>
+    <sys:String x:Key="AliasRepair_Analyzing">Comparing Folder copies by SHA-256...</sys:String>
+    <sys:String x:Key="AliasRepair_Identical">The copies are identical. The logical-name folder can be consolidated without choosing between different save contents.</sys:String>
+    <sys:String x:Key="AliasRepair_NoDifferences">No SHA-256 differences</sys:String>
+    <sys:String x:Key="AliasRepair_Divergent">The copies differ ({0} file difference(s)). Choose explicitly which complete version must remain.</sys:String>
+    <sys:String x:Key="AliasRepair_DifferencesCount">Differences ({0})</sys:String>
+    <sys:String x:Key="AliasRepair_BackupDestination">Before any replacement, every alias will be backed up and verified under: {0}</sys:String>
+    <sys:String x:Key="AliasRepair_Confirm">Keep the complete “{0}” version and consolidate this game under logical player “{1}”?&#x0A;&#x0A;Game: {2}&#x0A;&#x0A;All aliases will be backed up and SHA-256 verified first. Files from different versions will NOT be merged.</sys:String>
+    <sys:String x:Key="AliasRepair_Success">Conflict repaired successfully.&#x0A;&#x0A;Canonical Folder: {0}&#x0A;&#x0A;Verified backup: {1}</sys:String>
+    <sys:String x:Key="AliasRepair_Failed">The repair failed. The Assistant attempted to restore the original aliases from the verified backup.&#x0A;&#x0A;Details: {0}</sys:String>
+    <sys:String x:Key="AliasRepair_FailedShort">Repair failed; the verified backup was preserved.</sys:String>
+    <sys:String x:Key="AliasRepair_VerifyAgain">Alias conflict repaired. Verify the Switch again to recalculate SHA-256 comparison.</sys:String>
+    <sys:String x:Key="AliasRepair_OnlyReference">Only in first copy</sys:String>
+    <sys:String x:Key="AliasRepair_OnlyCompared">Only in compared copy</sys:String>
+    <sys:String x:Key="AliasRepair_Changed">Different content</sys:String>
+    <sys:String x:Key="AliasRepair_ProgressBackup">Creating verified backup</sys:String>
+    <sys:String x:Key="AliasRepair_ProgressValidateBackup">Validating backup by SHA-256</sys:String>
+    <sys:String x:Key="AliasRepair_ProgressStaging">Copying selected version to staging</sys:String>
+    <sys:String x:Key="AliasRepair_ProgressValidateStaging">Validating staging by SHA-256</sys:String>
+    <sys:String x:Key="AliasRepair_ProgressReplace">Consolidating aliases under the logical player name</sys:String>
+    <sys:String x:Key="AliasRepair_ProgressFinal">Validating final Folder by SHA-256</sys:String>
+    <sys:String x:Key="AliasRepair_ProgressRollback">Failure detected; restoring original aliases</sys:String>
+
+</ResourceDictionary>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

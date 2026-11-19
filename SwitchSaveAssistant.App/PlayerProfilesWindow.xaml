@@ -1,0 +1,366 @@
+<Window x:Class="SwitchSaveAssistant.App.PlayerProfilesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource Profiles_Title}"
+        Width="1120"
+        Height="720"
+        MinWidth="920"
+        MinHeight="620"
+        WindowStartupLocation="CenterOwner"
+        Loaded="Window_Loaded">
+
+    <Grid Margin="24">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border
+            Grid.Row="0"
+            Padding="18"
+            Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="16">
+
+            <StackPanel>
+
+                <TextBlock
+                    Text="{DynamicResource Profiles_Title}"
+                    FontSize="25"
+                    FontWeight="SemiBold"/>
+
+                <TextBlock
+                    Margin="0,6,0,0"
+                    Text="{DynamicResource Profiles_Description}"
+                    TextWrapping="Wrap"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"/>
+
+            </StackPanel>
+
+        </Border>
+
+        <Border
+            Grid.Row="2"
+            Padding="14"
+            Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="14">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="12"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="12"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontWeight="SemiBold"
+                    Text="{DynamicResource Profiles_NewPlayer}"/>
+
+                <TextBox
+                    Grid.Column="2"
+                    x:Name="NewProfileNameTextBox"
+                    Height="36"
+                    VerticalContentAlignment="Center"/>
+
+                <Button
+                    Grid.Column="4"
+                    Width="110"
+                    Height="36"
+                    Content="{DynamicResource Profiles_Create}"
+                    Click="CreateProfile_Click"/>
+
+            </Grid>
+
+        </Border>
+
+        <Grid Grid.Row="4">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="44*"/>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="56*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border
+                Grid.Column="0"
+                Padding="14"
+                Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="14">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        FontSize="18"
+                        FontWeight="SemiBold"
+                        Text="{DynamicResource Profiles_LogicalPlayers}"/>
+
+                    <DataGrid
+                        Grid.Row="2"
+                        x:Name="LogicalProfilesGrid"
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        CanUserDeleteRows="False"
+                        IsReadOnly="True"
+                        SelectionMode="Single"
+                        SelectionUnit="FullRow">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn
+                                Header="{DynamicResource Profiles_ColumnPlayer}"
+                                Binding="{Binding Name}"
+                                Width="*"/>
+
+                            <DataGridTextColumn
+                                Header="Eden"
+                                Binding="{Binding Eden}"
+                                Width="1.25*"/>
+
+                            <DataGridTextColumn
+                                Header="Switch"
+                                Binding="{Binding Switch}"
+                                Width="1.15*"/>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                    <WrapPanel
+                        Grid.Row="4">
+
+                        <Button
+                            Width="130"
+                            Height="34"
+                            Margin="0,0,8,8"
+                            Content="{DynamicResource Profiles_UnlinkEden}"
+                            Click="UnlinkEden_Click"/>
+
+                        <Button
+                            Width="140"
+                            Height="34"
+                            Margin="0,0,8,8"
+                            Content="{DynamicResource Profiles_UnlinkSwitch}"
+                            Click="UnlinkSwitch_Click"/>
+
+                        <Button
+                            Width="120"
+                            Height="34"
+                            Margin="0,0,8,8"
+                            Content="{DynamicResource Profiles_Delete}"
+                            Click="DeleteProfile_Click"/>
+
+                    </WrapPanel>
+
+                </Grid>
+
+            </Border>
+
+            <Border
+                Grid.Column="2"
+                Padding="14"
+                Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="14">
+
+                <TabControl>
+
+                    <TabItem
+                        Header="Eden">
+
+                        <Grid Margin="10">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="12"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <DockPanel>
+
+                                <TextBlock
+                                    x:Name="EdenStatusText"
+                                    VerticalAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"/>
+
+                                <Button
+                                    DockPanel.Dock="Right"
+                                    Width="100"
+                                    Height="32"
+                                    Content="{DynamicResource Profiles_Refresh}"
+                                    Click="RefreshEden_Click"/>
+
+                            </DockPanel>
+
+                            <DataGrid
+                                Grid.Row="2"
+                                x:Name="EdenProfilesGrid"
+                                AutoGenerateColumns="False"
+                                CanUserAddRows="False"
+                                CanUserDeleteRows="False"
+                                IsReadOnly="True"
+                                SelectionMode="Single"
+                                SelectionUnit="FullRow">
+
+                                <DataGrid.Columns>
+
+                                    <DataGridTextColumn
+                                        Header="{DynamicResource Profiles_ColumnName}"
+                                        Binding="{Binding Name}"
+                                        Width="1.1*"/>
+
+                                    <DataGridTextColumn
+                                        Header="{DynamicResource Profiles_ColumnId}"
+                                        Binding="{Binding NativeId}"
+                                        Width="1.8*"/>
+
+                                    <DataGridTextColumn
+                                        Header="{DynamicResource Profiles_ColumnStatus}"
+                                        Binding="{Binding Status}"
+                                        Width="1.05*"/>
+
+                                    <DataGridTextColumn
+                                        Header="{DynamicResource Profiles_ColumnGames}"
+                                        Binding="{Binding Games}"
+                                        Width="0.6*"/>
+
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+
+                            <Button
+                                Grid.Row="4"
+                                Width="180"
+                                Height="36"
+                                HorizontalAlignment="Right"
+                                Content="{DynamicResource Profiles_LinkEden}"
+                                Click="LinkEden_Click"/>
+
+                        </Grid>
+
+                    </TabItem>
+
+                    <TabItem
+                        Header="Switch / DBI">
+
+                        <Grid Margin="10">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="12"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <DockPanel>
+
+                                <TextBlock
+                                    x:Name="SwitchStatusText"
+                                    VerticalAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                    Text="{DynamicResource Profiles_SwitchNotScanned}"/>
+
+                                <Button
+                                    DockPanel.Dock="Right"
+                                    Width="130"
+                                    Height="32"
+                                    Content="{DynamicResource Profiles_DetectSwitch}"
+                                    Click="DetectSwitch_Click"/>
+
+                            </DockPanel>
+
+                            <DataGrid
+                                Grid.Row="2"
+                                x:Name="SwitchProfilesGrid"
+                                AutoGenerateColumns="False"
+                                CanUserAddRows="False"
+                                CanUserDeleteRows="False"
+                                IsReadOnly="True"
+                                SelectionMode="Single"
+                                SelectionUnit="FullRow">
+
+                                <DataGrid.Columns>
+
+                                    <DataGridTextColumn
+                                        Header="{DynamicResource Profiles_ColumnName}"
+                                        Binding="{Binding Name}"
+                                        Width="*"/>
+
+                                    <DataGridTextColumn
+                                        Header="{DynamicResource Profiles_ColumnIdentity}"
+                                        Binding="{Binding Identity}"
+                                        Width="1.15*"/>
+
+                                    <DataGridTextColumn
+                                        Header="{DynamicResource Profiles_ColumnGames}"
+                                        Binding="{Binding Games}"
+                                        Width="0.6*"/>
+
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+
+                            <Button
+                                Grid.Row="4"
+                                Width="180"
+                                Height="36"
+                                HorizontalAlignment="Right"
+                                Content="{DynamicResource Profiles_LinkSwitch}"
+                                Click="LinkSwitch_Click"/>
+
+                        </Grid>
+
+                    </TabItem>
+
+                </TabControl>
+
+            </Border>
+
+        </Grid>
+
+        <Border
+            Grid.Row="6"
+            Padding="14,10"
+            Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="12">
+
+            <TextBlock
+                Text="{DynamicResource Profiles_SafetyNote}"
+                TextWrapping="Wrap"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"/>
+
+        </Border>
+
+    </Grid>
+
+</Window>

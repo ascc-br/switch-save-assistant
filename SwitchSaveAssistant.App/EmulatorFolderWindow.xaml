@@ -1,0 +1,379 @@
+<Window x:Class="SwitchSaveAssistant.App.EmulatorFolderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource Emulator_Title}"
+        Width="1140"
+        Height="760"
+        MinWidth="900"
+        MinHeight="600"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid Margin="24">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Cabeçalho -->
+        <Border
+            Grid.Row="0"
+            Padding="18"
+            Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="18">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Border
+                    Width="58"
+                    Height="58"
+                    Background="{DynamicResource SystemFillColorSuccessBackgroundBrush}"
+                    CornerRadius="16">
+
+                    <TextBlock
+                        Text="🕹️"
+                        FontSize="28"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                </Border>
+
+                <StackPanel
+                    Grid.Column="1"
+                    Margin="16,0,0,0"
+                    VerticalAlignment="Center">
+
+                    <TextBlock
+                        Text="{DynamicResource Emulator_Title}"
+                        FontSize="28"
+                        FontWeight="SemiBold"/>
+
+                    <TextBlock
+                        Margin="0,6,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        TextWrapping="Wrap"
+                        Text="{DynamicResource Emulator_Description}"/>
+                </StackPanel>
+
+                <Border
+                    Grid.Column="2"
+                    Margin="18,0,0,0"
+                    Padding="12,8"
+                    Background="{DynamicResource SystemFillColorCautionBackgroundBrush}"
+                    CornerRadius="10"
+                    VerticalAlignment="Center">
+
+                    <TextBlock
+                        Foreground="{DynamicResource SystemFillColorCautionBrush}"
+                        FontWeight="SemiBold"
+                        Text="{DynamicResource Emulator_CloseBeforeCopy}"/>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Folder / Eden -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="18"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border
+                Grid.Column="0"
+                Padding="18"
+                Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="16">
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Border
+                            Width="42"
+                            Height="42"
+                            Background="{DynamicResource SystemFillColorAttentionBackgroundBrush}"
+                            CornerRadius="12">
+
+                            <TextBlock
+                                Text="📁"
+                                FontSize="21"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        </Border>
+
+                        <StackPanel Margin="12,0,0,0">
+                            <TextBlock
+                                Text="{DynamicResource Common_Folder}"
+                                FontSize="18"
+                                FontWeight="SemiBold"/>
+
+                            <TextBlock
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="{DynamicResource Emulator_CentralSaveFolder}"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <TextBox
+                        x:Name="FolderPathTextBox"
+                        Height="38"
+                        Margin="0,16,0,0"
+                        Padding="10,6"
+                        IsReadOnly="True"
+                        VerticalContentAlignment="Center"
+                        Text="{DynamicResource Emulator_NoFolderSelected}"/>
+
+                    <Button
+                        x:Name="FolderActionButton"
+                        Width="170"
+                        Height="38"
+                        Margin="0,12,0,0"
+                        HorizontalAlignment="Left"
+                        Content="{DynamicResource Emulator_SelectFolder}"
+                        Click="SelectFolder_Click"/>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Grid.Column="2"
+                Padding="18"
+                Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="16">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Border
+                            Width="42"
+                            Height="42"
+                            Background="{DynamicResource SystemFillColorSuccessBackgroundBrush}"
+                            CornerRadius="12">
+
+                            <TextBlock
+                                Text="🌿"
+                                FontSize="21"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        </Border>
+
+                        <StackPanel Margin="12,0,0,0">
+                            <TextBlock
+                                Text="{DynamicResource Common_Eden}"
+                                FontSize="18"
+                                FontWeight="SemiBold"/>
+
+                            <TextBlock
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="{DynamicResource Emulator_RootDescription}"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <TextBox
+                        Grid.Row="1"
+                        x:Name="EdenPathTextBox"
+                        Height="38"
+                        Margin="0,16,0,0"
+                        Padding="10,6"
+                        IsReadOnly="True"
+                        VerticalContentAlignment="Center"
+                        Text="{DynamicResource Emulator_NotDetected}"/>
+
+                    <Border
+                        Grid.Row="2"
+                        Margin="0,10,0,0"
+                        Padding="10,8"
+                        Background="{DynamicResource SystemFillColorNeutralBackgroundBrush}"
+                        CornerRadius="10">
+
+                        <TextBlock
+                            x:Name="EdenStatusText"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            FontWeight="SemiBold"
+                            Text="{DynamicResource Emulator_SearchingDefault}"/>
+                    </Border>
+
+                    <StackPanel
+                        Grid.Row="3"
+                        Margin="0,12,0,0"
+                        Orientation="Horizontal">
+
+                        <Button
+                            x:Name="EdenActionButton"
+                            Width="170"
+                            Height="38"
+                            Content="{DynamicResource Emulator_Detect}"
+                            Click="DetectEden_Click"/>
+
+                        <Button
+                            Width="170"
+                            Height="38"
+                            Margin="10,0,0,0"
+                            Content="{DynamicResource Emulator_ChooseRoot}"
+                            Click="SelectEdenRoot_Click"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- Catálogo comparativo -->
+        <Border
+            Grid.Row="4"
+            Padding="16"
+            Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="16">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="12"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Text="{DynamicResource Emulator_EdenSaves}"
+                        FontSize="18"
+                        FontWeight="SemiBold"
+                        VerticalAlignment="Center"/>
+
+                    <TextBlock
+                        Grid.Column="1"
+                        x:Name="EdenSummaryText"
+                        Margin="20,0,16,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        VerticalAlignment="Center"
+                        Text=""/>
+
+                    <TextBlock
+                        Grid.Column="2"
+                        Margin="0,0,8,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        VerticalAlignment="Center"
+                        Text="{DynamicResource Common_Filter}"/>
+
+                    <ComboBox
+                        Grid.Column="3"
+                        x:Name="CatalogFilterComboBox"
+                        Width="175"
+                        Height="34"
+                        SelectedIndex="0"
+                        SelectionChanged="CatalogFilter_SelectionChanged">
+
+                        <ComboBoxItem Content="{DynamicResource Common_All}" Tag="All"/>
+                        <ComboBoxItem Content="{DynamicResource Emulator_OnlyEden}" Tag="EdenOnly"/>
+                        <ComboBoxItem Content="{DynamicResource Emulator_OnlyFolder}" Tag="FolderOnly"/>
+                        <ComboBoxItem Content="{DynamicResource Common_Synchronized}" Tag="Synchronized"/>
+                        <ComboBoxItem Content="{DynamicResource Common_Divergent}" Tag="Divergent"/>
+                        <ComboBoxItem Content="{DynamicResource Common_WithErrors}" Tag="Error"/>
+                    </ComboBox>
+
+                    <CheckBox
+                        Grid.Column="4"
+                        x:Name="ShowEmptyCheckBox"
+                        Margin="18,0,0,0"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource Emulator_ShowEmpty}"
+                        Checked="ShowEmpty_Changed"
+                        Unchecked="ShowEmpty_Changed"/>
+                    <Button
+                        Grid.Column="5"
+                        Width="155"
+                        Height="34"
+                        Margin="14,0,0,0"
+                        Content="{DynamicResource Emulator_SafetyBackups}"
+                        Click="OpenSafetyBackups_Click"/>
+                </Grid>
+
+                <Grid
+                    Grid.Row="1"
+                    x:Name="ComparisonProgressPanel"
+                    Margin="0,12,0,0"
+                    Visibility="Collapsed">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ProgressBar
+                        x:Name="ComparisonProgressBar"
+                        Height="6"
+                        Minimum="0"
+                        Maximum="1"
+                        Value="0"/>
+
+                    <TextBlock
+                        Grid.Column="1"
+                        x:Name="ComparisonProgressText"
+                        Margin="14,0,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        VerticalAlignment="Center"
+                        Text="{DynamicResource Common_Comparing}"/>
+                </Grid>
+
+                <ScrollViewer
+                    Grid.Row="3"
+                    VerticalScrollBarVisibility="Auto"
+                    HorizontalScrollBarVisibility="Disabled">
+
+                    <StackPanel x:Name="EdenGamesPanel"/>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

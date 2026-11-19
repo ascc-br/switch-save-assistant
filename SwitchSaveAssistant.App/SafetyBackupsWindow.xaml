@@ -1,0 +1,248 @@
+<Window x:Class="SwitchSaveAssistant.App.SafetyBackupsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource Backups_Title}"
+        Width="1080"
+        Height="720"
+        MinWidth="860"
+        MinHeight="560"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid Margin="24">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border
+            Grid.Row="0"
+            Padding="18"
+            Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="16">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+
+                    <TextBlock
+                        Text="{DynamicResource Backups_Title}"
+                        FontSize="24"
+                        FontWeight="SemiBold"/>
+
+                    <TextBlock
+                        x:Name="SummaryText"
+                        Margin="0,5,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{DynamicResource Backups_Loading}"/>
+
+                </StackPanel>
+
+                <StackPanel
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+
+                    <Button
+                        Width="120"
+                        Height="36"
+                        Content="{DynamicResource Backups_Refresh}"
+                        Click="Refresh_Click"/>
+
+                    <Button
+                        Width="140"
+                        Height="36"
+                        Margin="10,0,0,0"
+                        Content="{DynamicResource Backups_OpenFolder}"
+                        Click="OpenFolder_Click"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+        <Grid Grid.Row="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border
+                Grid.Column="0"
+                Padding="12"
+                Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="16">
+
+                <DataGrid
+                    x:Name="BackupsGrid"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    SelectionMode="Single"
+                    HeadersVisibility="Column"
+                    GridLinesVisibility="None"
+                    BorderThickness="0"
+                    Background="Transparent"
+                    SelectionChanged="BackupsGrid_SelectionChanged">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn
+                            Header="{DynamicResource Backups_ColumnDate}"
+                            Binding="{Binding CreatedLocalText}"
+                            Width="145"/>
+
+                        <DataGridTextColumn
+                            Header="{DynamicResource Backups_ColumnGame}"
+                            Binding="{Binding GameName}"
+                            Width="*"/>
+
+                        <DataGridTextColumn
+                            Header="{DynamicResource Backups_ColumnProfile}"
+                            Binding="{Binding ProfileName}"
+                            Width="150"/>
+
+                        <DataGridTextColumn
+                            Header="{DynamicResource Backups_ColumnDestination}"
+                            Binding="{Binding DestinationSide}"
+                            Width="90"/>
+
+                        <DataGridTextColumn
+                            Header="{DynamicResource Backups_ColumnStatus}"
+                            Binding="{Binding Status}"
+                            Width="150"/>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </Border>
+
+            <Border
+                Grid.Column="2"
+                Padding="16"
+                Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="16">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Text="{DynamicResource Backups_Details}"
+                        FontSize="18"
+                        FontWeight="SemiBold"/>
+
+                    <TextBlock
+                        Grid.Row="2"
+                        x:Name="DetailsText"
+                        TextWrapping="Wrap"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{DynamicResource Backups_SelectBackup}"/>
+
+                    <Border
+                        Grid.Row="4"
+                        x:Name="StatusCard"
+                        Padding="10"
+                        Background="{DynamicResource SystemFillColorNeutralBackgroundBrush}"
+                        CornerRadius="10">
+
+                        <TextBlock
+                            x:Name="StatusText"
+                            TextWrapping="Wrap"
+                            Text="{DynamicResource Backups_NoneSelected}"/>
+
+                    </Border>
+
+                    <StackPanel
+                        Grid.Row="6"
+                        VerticalAlignment="Bottom">
+
+                        <Button
+                            x:Name="RestoreButton"
+                            Height="40"
+                            IsEnabled="False"
+                            Content="{DynamicResource Backups_RestoreSelected}"
+                            Click="Restore_Click"/>
+
+                        <Button
+                            x:Name="OpenSelectedButton"
+                            Height="36"
+                            Margin="0,10,0,0"
+                            IsEnabled="False"
+                            Content="{DynamicResource Backups_OpenSelected}"
+                            Click="OpenSelected_Click"/>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </Border>
+
+        </Grid>
+
+        <Grid Grid.Row="4">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                x:Name="FooterText"
+                VerticalAlignment="Center"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="{DynamicResource Backups_LegacyHint}"/>
+
+            <Button
+                Grid.Column="1"
+                Width="110"
+                Height="36"
+                Content="{DynamicResource Backups_Close}"
+                IsCancel="True"/>
+
+        </Grid>
+
+    </Grid>
+
+</Window>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
