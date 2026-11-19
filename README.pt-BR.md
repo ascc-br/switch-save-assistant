@@ -1,8 +1,18 @@
 # Switch Save Assistant
 
+## Download
+
+**[Baixar o instalador para Windows x64](https://github.com/ascc-br/switch-save-assistant/releases/download/v0.1.0-preview.2/SwitchSaveAssistant-Setup-0.1.0-preview.2-win-x64.exe)**
+
+Última versão disponível: **0.1.0-preview.2 (pré-lançamento)**.
+
+[ZIP portátil](https://github.com/ascc-br/switch-save-assistant/releases/download/v0.1.0-preview.2/SwitchSaveAssistant-Portable-0.1.0-preview.2-win-x64.zip) · [Notas da versão e hashes SHA-256](https://github.com/ascc-br/switch-save-assistant/releases/tag/v0.1.0-preview.2) · [Todas as versões](https://github.com/ascc-br/switch-save-assistant/releases)
+
+Os pacotes incluem o runtime .NET. Você pode usar o aplicativo sem instalar o SDK.
+
 Aplicativo desktop para Windows destinado a visualizar, comparar, fazer backup e sincronizar saves de Nintendo Switch entre as fontes atualmente suportadas.
 
-> **Estado:** pré-lançamento. O código e os binários ainda não foram publicados. O instalador e o pacote portátil estão planejados.
+> **Estado:** pré-lançamento público. O instalador e o pacote portátil para Windows x64 estão disponíveis nos links acima.
 
 Projeto independente, **sem afiliação, patrocínio ou endosso da Nintendo** ou dos desenvolvedores dos emuladores suportados.
 
@@ -39,7 +49,7 @@ dotnet test .\SwitchSaveAssistant.Tests\SwitchSaveAssistant.Tests.csproj --no-re
 dotnet run --project .\SwitchSaveAssistant.App\SwitchSaveAssistant.App.csproj
 ```
 
-Baseline documentado antes da publicação: **71 testes aprovados, zero avisos de compilação e zero erros**. Ainda são necessários testes manuais de integração com fontes reais.
+Build Release validado no Windows: **102 testes aprovados, zero avisos de compilação e zero erros**. Ainda são necessários testes manuais de integração com fontes reais.
 
 ## Organização do código
 
@@ -60,7 +70,7 @@ Configurações e vínculos de perfil usam arquivos como `settings.json` e `prof
 
 ## Próximas etapas
 
-Regressão funcional final, documentação open source, pacote portátil Windows x64, instalador e GitHub Releases com hashes. Outros emuladores permanecem em standby.
+O instalador e o pacote portátil Windows x64 são publicados nas Releases do GitHub com hashes SHA-256. O aplicativo verifica atualizações pelas Configurações. O instalador oferece atualização/reparo e desinstalação, com remoção opcional de perfis e configurações salvas. A compatibilidade com outros emuladores permanece adiada.
 
 ## Licença
 
