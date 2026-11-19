@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <AssemblyName>SwitchSaveAssistant</AssemblyName>
+    <ApplicationIcon>Assets\App.ico</ApplicationIcon>
     <AssemblyTitle>Switch Save Assistant</AssemblyTitle>
     <Product>Switch Save Assistant</Product>
     <Description>Assistente para gerenciamento seguro e manual de saves do Nintendo Switch e emuladores.</Description>
@@ -25,5 +26,9 @@
     <None Update="Help\conectar-switch.es-ES.html"
           CopyToOutputDirectory="PreserveNewest"
           CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\App.ico" />
+    <Resource Include="Assets\App.ico" />
   </ItemGroup>
 </Project>
