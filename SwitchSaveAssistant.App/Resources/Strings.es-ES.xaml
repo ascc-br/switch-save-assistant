@@ -1,4 +1,4 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=System.Runtime">
@@ -355,6 +355,26 @@ Antes de sustituir el destino actual, la aplicación creará y validará un roll
     <sys:String x:Key="AliasRepair_ProgressReplace">Consolidando alias bajo el nombre lógico</sys:String>
     <sys:String x:Key="AliasRepair_ProgressFinal">Validando Folder final por SHA-256</sys:String>
     <sys:String x:Key="AliasRepair_ProgressRollback">Fallo detectado; restaurando los alias originales</sys:String>
+
+    <sys:String x:Key="Updates_Title">Actualizaciones</sys:String>
+    <sys:String x:Key="Updates_Current">Versión actual: {0}</sys:String>
+    <sys:String x:Key="Updates_AutoCheck">Buscar y notificar actualizaciones disponibles</sys:String>
+    <sys:String x:Key="Updates_Explanation">Comprueba al abrir la aplicación. La descarga comienza solo cuando eliges actualizar.</sys:String>
+    <sys:String x:Key="Updates_Check">Buscar actualizaciones</sys:String>
+    <sys:String x:Key="Updates_Install">Actualizar…</sys:String>
+    <sys:String x:Key="Updates_DownloadPortable">Descargar actualización portable…</sys:String>
+    <sys:String x:Key="Updates_Ready">Listo para comprobar.</sys:String>
+    <sys:String x:Key="Updates_Checking">Buscando actualizaciones…</sys:String>
+    <sys:String x:Key="Updates_Available">Actualización disponible: {0}</sys:String>
+    <sys:String x:Key="Updates_CurrentLatest">Estás usando la última versión disponible para tu edición.</sys:String>
+    <sys:String x:Key="Updates_NoReleases">Todavía no hay una versión publicada con un paquete compatible disponible.</sys:String>
+    <sys:String x:Key="Updates_CheckFailed">No se pudo comprobar. Revisa la conexión e inténtalo más tarde.</sys:String>
+    <sys:String x:Key="Updates_ConfirmInstall">¿Descargar la versión {0} y abrir el instalador? Tras verificar el archivo, esta aplicación se cerrará. Se conservarán la configuración y los perfiles guardados.</sys:String>
+    <sys:String x:Key="Updates_ConfirmPortable">¿Descargar la versión portable {0}? Se abrirá la carpeta del ZIP. Extrae el paquete en una carpeta nueva y abre el nuevo ejecutable. Se conservarán la configuración y los perfiles guardados.</sys:String>
+    <sys:String x:Key="Updates_Downloading">Descargando y verificando SHA-256…</sys:String>
+    <sys:String x:Key="Updates_DownloadFailed">No se pudo descargar, verificar o abrir la actualización. La aplicación actual sigue disponible. Intenta comprobar de nuevo.</sys:String>
+    <sys:String x:Key="Updates_PortableReady">ZIP verificado. Extrae en una carpeta nueva y abre el nuevo ejecutable.</sys:String>
+    <sys:String x:Key="Updates_OpenSettings">Ver actualización</sys:String>
 
 </ResourceDictionary>
 

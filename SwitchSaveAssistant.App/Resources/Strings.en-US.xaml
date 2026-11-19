@@ -1,4 +1,4 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=System.Runtime">
@@ -355,6 +355,26 @@ Before replacing the current destination, the app will create and validate a rol
     <sys:String x:Key="AliasRepair_ProgressReplace">Consolidating aliases under the logical player name</sys:String>
     <sys:String x:Key="AliasRepair_ProgressFinal">Validating final Folder by SHA-256</sys:String>
     <sys:String x:Key="AliasRepair_ProgressRollback">Failure detected; restoring original aliases</sys:String>
+
+    <sys:String x:Key="Updates_Title">Updates</sys:String>
+    <sys:String x:Key="Updates_Current">Current version: {0}</sys:String>
+    <sys:String x:Key="Updates_AutoCheck">Check and notify when an update is available</sys:String>
+    <sys:String x:Key="Updates_Explanation">Checks when the app opens. Downloads start only when you choose to update.</sys:String>
+    <sys:String x:Key="Updates_Check">Check for updates</sys:String>
+    <sys:String x:Key="Updates_Install">Update…</sys:String>
+    <sys:String x:Key="Updates_DownloadPortable">Download portable update…</sys:String>
+    <sys:String x:Key="Updates_Ready">Ready to check.</sys:String>
+    <sys:String x:Key="Updates_Checking">Checking for updates…</sys:String>
+    <sys:String x:Key="Updates_Available">Update available: {0}</sys:String>
+    <sys:String x:Key="Updates_CurrentLatest">You are using the latest available version for your edition.</sys:String>
+    <sys:String x:Key="Updates_NoReleases">No published release with a compatible package is available yet.</sys:String>
+    <sys:String x:Key="Updates_CheckFailed">Could not check for updates. Check your connection and try again later.</sys:String>
+    <sys:String x:Key="Updates_ConfirmInstall">Download version {0} and open the installer? After verifying the file, this app will close. Saved settings and profiles will be preserved.</sys:String>
+    <sys:String x:Key="Updates_ConfirmPortable">Download portable version {0}? The ZIP folder will open. Extract the package into a new folder and open the new executable. Saved settings and profiles will be preserved.</sys:String>
+    <sys:String x:Key="Updates_Downloading">Downloading and verifying SHA-256…</sys:String>
+    <sys:String x:Key="Updates_DownloadFailed">Could not download, verify or open the update. The current app remains available. Try checking again.</sys:String>
+    <sys:String x:Key="Updates_PortableReady">ZIP verified. Extract into a new folder and open the new executable.</sys:String>
+    <sys:String x:Key="Updates_OpenSettings">View update</sys:String>
 
 </ResourceDictionary>
 

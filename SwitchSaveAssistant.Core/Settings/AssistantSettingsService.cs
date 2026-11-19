@@ -1,9 +1,11 @@
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace SwitchSaveAssistant.Core.Settings;
 
 public sealed record AssistantSettings
 {
+	public bool CheckForUpdatesOnStartup { get; init; } = true;
+
 	public string? FolderPath
 	{
 		get;

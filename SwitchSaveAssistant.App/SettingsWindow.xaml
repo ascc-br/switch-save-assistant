@@ -1,9 +1,9 @@
-<Window x:Class="SwitchSaveAssistant.App.SettingsWindow"
+﻿<Window x:Class="SwitchSaveAssistant.App.SettingsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="{DynamicResource Settings_Title}"
         Width="690"
-        Height="590"
+        Height="690"
         MinWidth="620"
         MinHeight="540"
         WindowStartupLocation="CenterOwner"
@@ -52,6 +52,8 @@
             BorderThickness="1"
             CornerRadius="16">
 
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
             <Grid>
 
                 <Grid.ColumnDefinitions>
@@ -183,7 +185,23 @@
                 </ComboBox>
 
             </Grid>
-
+            <Separator Margin="0,20,0,16"/>
+            <StackPanel>
+                <TextBlock Text="{DynamicResource Updates_Title}" FontSize="18" FontWeight="SemiBold"/>
+                <TextBlock x:Name="CurrentVersionText" Margin="0,6,0,8"/>
+                <CheckBox x:Name="CheckUpdatesCheckBox" IsThreeState="False">
+                    <TextBlock Text="{DynamicResource Updates_AutoCheck}" TextWrapping="Wrap"/>
+                </CheckBox>
+                <TextBlock Margin="0,6,0,12" Text="{DynamicResource Updates_Explanation}" TextWrapping="Wrap"
+                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"/>
+                <WrapPanel>
+                    <Button x:Name="CheckUpdatesButton" Content="{DynamicResource Updates_Check}" Padding="14,8" Margin="0,0,8,8" Click="CheckUpdates_Click"/>
+                    <Button x:Name="InstallUpdateButton" Padding="14,8" Margin="0,0,0,8" Visibility="Collapsed" Click="InstallUpdate_Click"/>
+                </WrapPanel>
+                <TextBlock x:Name="UpdateStatusText" TextWrapping="Wrap" AutomationProperties.LiveSetting="Polite"/>
+            </StackPanel>
+            </StackPanel>
+            </ScrollViewer>
         </Border>
 
         <StackPanel
